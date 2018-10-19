@@ -46,8 +46,8 @@ Y=np.append(np.zeros(len(happy)),np.ones(len(sad)))
 xtr,xts,ytr,yts=train_test_split(X,Y,test_size=0.33)
 
 
-from sklearn.naive_bayes import BernoulliNB
-bnb=BernoulliNB(alpha=1,class_prior=None,fit_prior=True)
+from sklearn.linear_model import LogisticRegression
+bnb=LogisticRegression()
 bnb.fit(xtr,ytr)
 
 
