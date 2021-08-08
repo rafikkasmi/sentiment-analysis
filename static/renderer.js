@@ -19,7 +19,7 @@ document.getElementById('mt').innerHTML="Hold On ....";
 // console.log("finish")
 // pythonProcess.stdout.on('data', (data) => {
 var data,obj,happiness,sadness;
-    $.ajax({url: "http://127.0.0.1:5000/api/'"+text+"'", success: function(result){
+    $.ajax({url: "/api/'"+text+"'", success: function(result){
         data=result
         obj=JSON.parse(data)
         happiness=obj.happiness*100

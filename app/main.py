@@ -51,9 +51,9 @@ bnb=LogisticRegression()
 bnb.fit(xtr,ytr)
 
 
-from flask import Flask, render_template
+from flask import Flask, render_template,send_from_directory
 
-app = Flask(__name__, static_url_path='',template_folder="static")
+app = Flask(__name__, static_url_path='/static',template_folder="../static")
 @app.route("/")
 def index():
 	return render_template("index.html")
@@ -63,3 +63,6 @@ def hello(sentence):
 	r=bnb.predict_proba(vect)
 	a = {'happiness':r[0][0], 'sadness':r[0][1] }
 	return json.dumps(a)
+@app.route("/statique/<path:path>")
+def static_dir(path):
+    return send_from_directory("../static", path)
